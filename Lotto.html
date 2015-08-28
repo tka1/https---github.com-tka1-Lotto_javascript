@@ -45,6 +45,10 @@
         /* main function */
         function arvonta() {
             var r = document.getElementById("rows").value;
+            if (r > 100) {
+                r = 100;
+
+            }
             var text = "";
             var l;
             for (l = 0; l < r; l++) {
