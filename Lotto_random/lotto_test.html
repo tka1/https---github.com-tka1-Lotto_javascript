@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Lotto generaattori</title>
+    <link rel="stylesheet" type="text/css" href="StyleSheet.css">
+</head>
+<body>
+    <h1 class="heading"> LOTTO GENERAATTORI </h1>
+    <p class="btn"> Rivejä:  <input name="rows" id="rows"> </p>
+    <button class="btn" onclick="arvonta()">Arvo numerot</button>
+
+
+    <h2 style="text-align:center" id="demo"></h2>
+
+
+    <script>
+        function numero() {
+            var x = 45
+			var array = new Int8Array(1);
+            while (x > 39) {
+                var x = window.crypto.getRandomValues(array);
+				x = Math.abs(x);
+				if (x == 0) {
+				x = x + 1;
+				}else {
+				}
+                
+            }
+            return x;
+        }
+
+        function Lotto() {
+
+            var numerot = [];
+            for (i = 0; i < 7; i++) {
+                var a = 3;
+                while (a != -1) {
+                    var nume = numero();
+                    a = numerot.indexOf(nume);
+                    numerot[i] = nume;
+
+                }
+            }
+            numerot.sort(function (a, b) { return a - b });
+            return numerot
+            /*document.getElementById("demo").innerHTML = numerot;*/
+
+        }
+        function arvonta() {
+            var r = document.getElementById("rows").value;
+            var text = "";
+            var l;
+            for (l = 0; l < r; l++) {
+                text += Lotto() + "<br>";
+            }
+            document.getElementById("demo").innerHTML = text;
+        }
+    </script>
