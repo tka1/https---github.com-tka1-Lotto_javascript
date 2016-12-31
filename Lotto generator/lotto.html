@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Lotto generaattori</title>
@@ -17,7 +17,7 @@
         function numero() {
             var x = 45
 			var array = new Int8Array(1);
-            while (x > 39) {
+            while (x > 40) {
                 var x = window.crypto.getRandomValues(array);
 				x = Math.abs(x);
 				if (x == 0) {
